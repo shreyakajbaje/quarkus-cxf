@@ -70,4 +70,4 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: cd integration-tests/${{matrix.testModule}} && mvn verify -Pnative
-      run: cd integration-tests/${{matrix.testModule}} && ../../mvnw -B verify -Pnative -Dquarkus.native.container-build=true
+      run: cd integration-tests/${{matrix.testModule}} && ../../mvnw -B verify -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-mandrel-builder-image:22.1-java11
