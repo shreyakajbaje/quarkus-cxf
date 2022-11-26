@@ -64,12 +64,12 @@ public class VertxHttpServletResponse implements HttpServletResponse {
 
     @Override
     public void setDateHeader(String name, long date) {
-
+        response.headers().add(name, String.valueOf(date));
     }
 
     @Override
     public void addDateHeader(String name, long date) {
-
+        response.headers().add(name, String.valueOf(date));
     }
 
     @Override

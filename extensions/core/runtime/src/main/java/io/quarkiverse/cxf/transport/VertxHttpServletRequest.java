@@ -69,19 +69,19 @@ public class VertxHttpServletRequest implements HttpServletRequest {
 
     @Override
     public String getRequestId() {
-        LOG.trace("getDispatcherType()");
+        LOG.trace("getRequestId()");
         throw new UnsupportedOperationException();
     }
 
     @Override
     public String getProtocolRequestId() {
-        LOG.trace("getDispatcherType()");
+        LOG.trace("getProtocolRequestId()");
         throw new UnsupportedOperationException();
     }
 
     @Override
     public ServletConnection getServletConnection() {
-        LOG.trace("getDispatcherType()");
+        LOG.trace("getServletConnection()");
         throw new UnsupportedOperationException();
     }
 
