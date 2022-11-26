@@ -273,7 +273,7 @@ class QuarkusCxfProcessor {
                 "org.apache.cxf.attachment.AttachmentSerializer",
                 "org.apache.cxf.attachment.AttachmentUtil",
                 "org.apache.cxf.attachment.ImageDataContentHandler",
-                "org.apache.cxf.configuration.blueprint.AbstractBPBeanDefinitionParser",
+                //"org.apache.cxf.configuration.blueprint.AbstractBPBeanDefinitionParser",
                 "org.apache.cxf.endpoint.ClientImpl",
                 "org.apache.cxf.interceptor.AttachmentOutInterceptor",
                 "org.apache.cxf.interceptor.OneWayProcessorInterceptor",

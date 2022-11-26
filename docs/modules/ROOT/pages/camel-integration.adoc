@@ -30,7 +30,7 @@ Given a Camel `GreetingRoute` class defined as:
 ----
 import org.apache.camel.builder.RouteBuilder;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class GreetingRoute extends RouteBuilder {
@@ -52,12 +52,12 @@ Your web service can invoke the `GreetingRoute` as shown below.
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 
-import javax.jws.WebParam;
-import javax.jws.WebService;
-import javax.xml.ws.BindingType;
+import jakarta.jws.WebParam;
+import jakarta.jws.WebService;
+import jakarta.xml.ws.BindingType;
 
 @WebService(endpointInterface = "org.acme.cdi.greeting.GreetingWebService", serviceName = "GreetingWebService")
-@BindingType(javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
+@BindingType(jakarta.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
 public class GreetingWebServiceImpl implements GreetingWebService {
 
     /**
@@ -88,8 +88,8 @@ To call a `@CXFClient` SOAP web service from your Camel route, you can implement
 
 [source,java]
 ----
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import io.quarkiverse.cxf.annotation.CXFClient;
 import org.apache.camel.builder.RouteBuilder;

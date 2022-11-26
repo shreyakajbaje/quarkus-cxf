@@ -5,9 +5,9 @@ import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Locale;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
@@ -44,18 +44,6 @@ public class VertxHttpServletResponse implements HttpServletResponse {
 
     @Override
     public String encodeRedirectURL(String url) {
-        return null;
-    }
-
-    @Override
-    @Deprecated
-    public String encodeUrl(String url) {
-        return null;
-    }
-
-    @Override
-    @Deprecated
-    public String encodeRedirectUrl(String url) {
         return null;
     }
 
@@ -107,13 +95,6 @@ public class VertxHttpServletResponse implements HttpServletResponse {
     @Override
     public void setStatus(int sc) {
         response.setStatusCode(sc);
-    }
-
-    @Override
-    @Deprecated
-    public void setStatus(int sc, String sm) {
-        response.setStatusCode(sc);
-        response.setStatusMessage(sm);
     }
 
     @Override

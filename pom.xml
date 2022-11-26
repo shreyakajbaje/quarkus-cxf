@@ -10,7 +10,7 @@
 
     <groupId>io.quarkiverse.cxf</groupId>
     <artifactId>quarkus-cxf-parent</artifactId>
-    <version>1.7.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <name>Quarkus CXF - Parent</name>
 
     <packaging>pom</packaging>
@@ -44,14 +44,14 @@
         <!-- Compile dependency versions (keep sorted alphabetically) -->
         <!-- Items annotated with @sync can be updated by running mvn cq:sync-versions -N -->
         <assertj.version>3.23.1</assertj.version>
-        <cxf.version>3.5.3</cxf.version>
-        <cxf.xjc-utils.version>3.3.2</cxf.xjc-utils.version><!-- @sync org.apache.cxf:cxf:${cxf.version} prop:cxf.xjc-utils.version -->
+        <cxf.version>4.0.0-SNAPSHOT</cxf.version>
+        <cxf.xjc-utils.version>4.0.0-SNAPSHOT</cxf.xjc-utils.version><!-- @sync org.apache.cxf:cxf:${cxf.version} prop:cxf.xjc-utils.version -->
         <ehcache.version>3.10.8</ehcache.version>
         <neethi.version>3.2.0</neethi.version>
         <mimepull.version>1.9.14</mimepull.version>
-        <quarkus.version>2.14.1.Final</quarkus.version>
+        <quarkus.version>3.0.0.Alpha1</quarkus.version>
         <quarkus-xmlsec.version>1.1.1</quarkus-xmlsec.version>
-        <saaj-impl.version>1.5.3</saaj-impl.version>
+        <saaj-impl.version>2.0.1</saaj-impl.version>
         <woodstox-core.version>6.4.0</woodstox-core.version>
 
         <supported-maven.versions>[3.6.2,)</supported-maven.versions>
@@ -98,7 +98,7 @@
                 <plugin>
                     <groupId>org.apache.cxf</groupId>
                     <artifactId>cxf-codegen-plugin</artifactId>
-                    <version>${cxf.version}</version>
+                    <version>3.5.4</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -240,10 +240,10 @@
                                         <exclude>org.jboss.spec.javax.el:jboss-el-api_3.0_spec</exclude>
                                         <!-- except for these 2 for now as most of the RESTEasy optional artifacts depend on them
                                         <exclude>org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec</exclude>
-                                        <exclude>org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec</exclude>
+                                        <exclude>org.jboss.spec.jakarta.xml.bind:jboss-jaxb-api_2.3_spec</exclude>
                                         -->
-                                        <exclude>jakarta.xml.bind:jakarta.xml.bind-api</exclude>
-                                        <exclude>jakarta.ws.rs:jakarta.ws.rs-api</exclude>
+<!--                                        <exclude>jakarta.xml.bind:jakarta.xml.bind-api</exclude>-->
+<!--                                        <exclude>jakarta.ws.rs:jakarta.ws.rs-api</exclude>-->
                                         <!-- Exclude javax dependencies in favor of Jakarta -->
                                         <exclude>javax.activation:activation</exclude>
                                         <exclude>javax.activation:javax.activation-api</exclude>
@@ -262,11 +262,11 @@
                                         <exclude>javax.transaction:jta</exclude>
                                         <exclude>javax.transaction:javax.transaction-api</exclude>
                                         <exclude>javax.validation:validation-api</exclude>
-                                        <exclude>javax.xml.bind:jaxb-api</exclude>
+                                        <exclude>jakarta.xml.bind:jaxb-api</exclude>
                                         <exclude>javax.websocket:javax.websocket-api</exclude>
                                         <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
                                         <!-- Exclude jakarta.activation-api as the implementation contains it -->
-                                        <exclude>jakarta.activation:jakarta.activation-api</exclude>
+<!--                                        <exclude>jakarta.activation:jakarta.activation-api</exclude>-->
                                         <!-- use our jboss-logmanager -->
                                         <exclude>org.jboss.logging:jboss-logmanager</exclude>
                                         <exclude>org.jboss.logging:jboss-logging-jdk</exclude>
@@ -388,4 +388,26 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>apache-snapshots</id>
+            <name>Apache SNAPSHOT Repository</name>
+            <url>https://repository.apache.org/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>apache-snapshots</id>
+            <name>Apache SNAPSHOT Repository</name>
+            <url>https://repository.apache.org/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

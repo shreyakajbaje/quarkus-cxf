@@ -8,7 +8,7 @@ Quarkus-CXF supports SOAP clients. Assuming a given Service Endpoint Interface (
 [source,java]
 ----
 import org.acme.FruitWebService;                   // SEI
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import io.quarkiverse.cxf.annotation.CXFClient;
 
 @ApplicationScoped  // or any other CDI scope

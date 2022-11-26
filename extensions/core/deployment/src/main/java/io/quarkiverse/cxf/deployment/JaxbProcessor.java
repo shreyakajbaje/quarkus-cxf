@@ -19,8 +19,7 @@ class JaxbProcessor {
     @BuildStep
     void indexDependencies(BuildProducer<IndexDependencyBuildItem> indexDependencies) {
         Stream.of(
-                "org.glassfish.jaxb:txw2",
-                "org.glassfish.jaxb:jaxb-runtime")
+                "org.glassfish.jaxb:txw2")
                 .forEach(ga -> {
                     String[] coords = ga.split(":");
                     indexDependencies.produce(new IndexDependencyBuildItem(coords[0], coords[1]));
@@ -33,7 +32,7 @@ class JaxbProcessor {
         final IndexView index = combinedIndexBuildItem.getIndex();
 
         Stream.of(
-                "javax.xml.bind.JAXBElement",
+                "jakarta.xml.bind.JAXBElement",
                 "com.sun.xml.bind.v2.runtime.JaxBeanInfo")
                 .flatMap(className -> index.getAllKnownSubclasses(DotName.createSimple(className)).stream())
                 .map(classInfo -> classInfo.name().toString())

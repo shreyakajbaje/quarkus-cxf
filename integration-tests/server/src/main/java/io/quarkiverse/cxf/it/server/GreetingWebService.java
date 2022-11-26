@@ -1,9 +1,9 @@
 package io.quarkiverse.cxf.it.server;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
-import javax.xml.ws.RequestWrapper;
+import jakarta.jws.WebMethod;
+import jakarta.jws.WebParam;
+import jakarta.jws.WebService;
+import jakarta.xml.ws.RequestWrapper;
 
 @WebService
 public interface GreetingWebService {

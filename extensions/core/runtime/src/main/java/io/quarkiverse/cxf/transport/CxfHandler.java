@@ -5,13 +5,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import javax.enterprise.inject.AmbiguousResolutionException;
-import javax.enterprise.inject.Instance;
-import javax.enterprise.inject.UnsatisfiedResolutionException;
-import javax.enterprise.inject.spi.CDI;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.xml.namespace.QName;
+
+import jakarta.enterprise.inject.AmbiguousResolutionException;
+import jakarta.enterprise.inject.Instance;
+import jakarta.enterprise.inject.UnsatisfiedResolutionException;
+import jakarta.enterprise.inject.spi.CDI;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
@@ -123,9 +124,9 @@ public class CxfHandler implements Handler<RoutingContext> {
                     jaxWsServerFactoryBean.setFeatures(features);
                 }
                 if (!servletInfo.getHandlers().isEmpty()) {
-                    List<javax.xml.ws.handler.Handler> handlers = new ArrayList<>();
+                    List<jakarta.xml.ws.handler.Handler> handlers = new ArrayList<>();
                     for (String handler : servletInfo.getHandlers()) {
-                        javax.xml.ws.handler.Handler instanceHandler = getInstance(handler, "handler", endpointType);
+                        jakarta.xml.ws.handler.Handler instanceHandler = (jakarta.xml.ws.handler.Handler) getInstance(handler);
                         handlers.add(instanceHandler);
                     }
                     jaxWsServerFactoryBean.setHandlers(handlers);

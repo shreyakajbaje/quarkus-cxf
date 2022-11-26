@@ -17,21 +17,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.servlet.AsyncContext;
-import javax.servlet.DispatcherType;
-import javax.servlet.ReadListener;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpUpgradeHandler;
-import javax.servlet.http.Part;
+import jakarta.servlet.*;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpUpgradeHandler;
+import jakarta.servlet.http.Part;
 
 import org.apache.cxf.common.util.UrlUtils;
 import org.jboss.logging.Logger;
@@ -71,6 +63,24 @@ public class VertxHttpServletRequest implements HttpServletRequest {
 
     @Override
     public DispatcherType getDispatcherType() {
+        LOG.trace("getDispatcherType()");
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String getRequestId() {
+        LOG.trace("getDispatcherType()");
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String getProtocolRequestId() {
+        LOG.trace("getDispatcherType()");
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ServletConnection getServletConnection() {
         LOG.trace("getDispatcherType()");
         throw new UnsupportedOperationException();
     }
@@ -227,13 +237,6 @@ public class VertxHttpServletRequest implements HttpServletRequest {
     public BufferedReader getReader() throws IOException {
         LOG.trace("getReader");
         return new BufferedReader(new InputStreamReader(in, UTF_8));
-    }
-
-    @Override
-    @Deprecated
-    public String getRealPath(String path) {
-        LOG.trace("getRealPath");
-        return null;
     }
 
     @Override
@@ -498,13 +501,6 @@ public class VertxHttpServletRequest implements HttpServletRequest {
     @Override
     public boolean isRequestedSessionIdFromURL() {
         LOG.trace("isRequestedSessionIdFromURL");
-        return false;
-    }
-
-    @Override
-    @Deprecated
-    public boolean isRequestedSessionIdFromUrl() {
-        LOG.trace("isRequestedSessionIdFromUrl");
         return false;
     }
 
