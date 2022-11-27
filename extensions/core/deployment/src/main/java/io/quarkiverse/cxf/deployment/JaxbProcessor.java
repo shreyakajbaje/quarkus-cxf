@@ -18,8 +18,9 @@ class JaxbProcessor {
 
     @BuildStep
     void indexDependencies(BuildProducer<IndexDependencyBuildItem> indexDependencies) {
-        Stream.of("org.glassfish.jaxb:jaxb-runtime",
-                "org.glassfish.jaxb:txw2")
+        Stream.of(
+                "org.glassfish.jaxb:txw2",
+                "org.glassfish.jaxb:jaxb-runtime")
                 .forEach(ga -> {
                     String[] coords = ga.split(":");
                     indexDependencies.produce(new IndexDependencyBuildItem(coords[0], coords[1]));
@@ -33,6 +34,7 @@ class JaxbProcessor {
 
         Stream.of(
                 "jakarta.xml.bind.JAXBElement",
+                "com.sun.xml.bind.v2.runtime.JaxBeanInfo",
                 "org.glassfish.jaxb.runtime.v2.runtime.JaxBeanInfo")
                 .flatMap(className -> index.getAllKnownSubclasses(DotName.createSimple(className)).stream())
                 .map(classInfo -> classInfo.name().toString())
@@ -41,7 +43,9 @@ class JaxbProcessor {
 
         reflectiveClass.produce(new ReflectiveClassBuildItem(true, false,
                 "org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl",
-                "org.glassfish.jaxb.runtime.v2.runtime.JaxBeanInfo"));
+                "org.glassfish.jaxb.runtime.v2.runtime.JaxBeanInfo",
+                "com.sun.xml.bind.v2.runtime.JAXBContextImpl",
+                "com.sun.xml.bind.v2.runtime.JaxBeanInfo"));
 
     }
 
