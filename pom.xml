@@ -45,7 +45,7 @@
         <!-- Items annotated with @sync can be updated by running mvn cq:sync-versions -N -->
         <assertj.version>3.23.1</assertj.version>
         <cxf.version>4.0.0-SNAPSHOT</cxf.version>
-        <cxf.xjc-utils.version>4.0.0-SNAPSHOT</cxf.xjc-utils.version><!-- @sync org.apache.cxf:cxf:${cxf.version} prop:cxf.xjc-utils.version -->
+        <cxf.xjc-utils.version>4.0.0</cxf.xjc-utils.version><!-- @sync org.apache.cxf:cxf:${cxf.version} prop:cxf.xjc-utils.version -->
         <ehcache.version>3.10.8</ehcache.version>
         <neethi.version>3.2.0</neethi.version>
         <mimepull.version>1.9.14</mimepull.version>
@@ -240,7 +240,7 @@
                                         <exclude>org.jboss.spec.javax.el:jboss-el-api_3.0_spec</exclude>
                                         <!-- except for these 2 for now as most of the RESTEasy optional artifacts depend on them
                                         <exclude>org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec</exclude>
-                                        <exclude>org.jboss.spec.jakarta.xml.bind:jboss-jaxb-api_2.3_spec</exclude>
+                                        <exclude>org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec</exclude>
                                         -->
 <!--                                        <exclude>jakarta.xml.bind:jakarta.xml.bind-api</exclude>-->
 <!--                                        <exclude>jakarta.ws.rs:jakarta.ws.rs-api</exclude>-->
@@ -262,7 +262,7 @@
                                         <exclude>javax.transaction:jta</exclude>
                                         <exclude>javax.transaction:javax.transaction-api</exclude>
                                         <exclude>javax.validation:validation-api</exclude>
-                                        <exclude>jakarta.xml.bind:jaxb-api</exclude>
+                                        <exclude>javax.xml.bind:jaxb-api</exclude>
                                         <exclude>javax.websocket:javax.websocket-api</exclude>
                                         <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
                                         <!-- Exclude jakarta.activation-api as the implementation contains it -->
