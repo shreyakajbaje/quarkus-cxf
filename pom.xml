@@ -398,6 +398,12 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <!-- Added temporarily for OpenSAML dependencies -->
+            <id>shibboleth</id>
+            <name>Shibboleth Repository</name>
+            <url>https://build.shibboleth.net/maven/releases/</url>
+        </repository>
     </repositories>
 
     <pluginRepositories>
