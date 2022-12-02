@@ -21,7 +21,7 @@ public class MtomServiceImpl implements MtomService {
 
         log.infof("Received content type %s", dataHandler.getContentType());
         try {
-            String message = (String) dataHandler.getContent();
+            String message = dataHandler.getContent().toString();
             log.infof("Received content %s", message);
 
             DataHandler responseData = new DataHandler(message + " echoed from the server", "text/plain");
