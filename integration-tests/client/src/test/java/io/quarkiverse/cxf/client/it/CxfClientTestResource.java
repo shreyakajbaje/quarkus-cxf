@@ -39,7 +39,8 @@ public class CxfClientTestResource implements QuarkusTestResourceLifecycleManage
 
     @Override
     public Map<String, String> start() {
-        String remoteHost = System.getProperty("remote.host");
+        // String remoteHost = System.getProperty("remote.host");
+        String remoteHost = "10.0.118.18";
         network = Network.newNetwork();
 
         final String PROXY_USER = "proxyuser";
